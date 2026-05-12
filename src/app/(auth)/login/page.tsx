@@ -50,24 +50,24 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-calm flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-calm flex items-center justify-center px-4 py-12">
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.35 }}
         className="w-full max-w-md"
       >
         {/* Logo */}
-        <div className="flex flex-col items-center mb-8">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-hero shadow-glow mb-4">
+        <div className="mb-8 flex flex-col items-center text-center">
+          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-hero shadow-glow">
             <Brain className="h-7 w-7 text-white" />
           </div>
-          <h1 className="text-2xl font-extrabold text-slate-800">Welcome back!</h1>
-          <p className="text-slate-500 mt-1">Sign in to DivergentEd</p>
+          <h1 className="text-2xl font-extrabold tracking-tight text-ink">Welcome back!</h1>
+          <p className="mt-1.5 text-sm text-ink-muted">Sign in to DivergentEd</p>
         </div>
 
         <Card>
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <Label htmlFor="email">Email address</Label>
               <Input
@@ -97,7 +97,8 @@ export default function LoginPage() {
                 <button
                   type="button"
                   onClick={() => setShowPw(!showPw)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-ink-subtle hover:text-ink-muted transition-colors"
+                  aria-label={showPw ? "Hide password" : "Show password"}
                 >
                   {showPw ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
@@ -130,8 +131,8 @@ export default function LoginPage() {
         </Card>
 
         {/* Demo accounts */}
-        <Card className="mt-4 bg-brand-50 border-brand-100">
-          <p className="text-xs font-bold text-brand-700 mb-3">Demo accounts</p>
+        <Card className="mt-6 bg-brand-50 border-brand-100" padding="md">
+          <p className="mb-3 text-xs font-bold text-brand-700">Try a demo account</p>
           <div className="grid grid-cols-2 gap-2">
             {[
               { label: "Child",   email: "child@demo.com"   },

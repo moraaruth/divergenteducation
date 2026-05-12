@@ -53,25 +53,26 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-calm flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-calm flex items-center justify-center px-4 py-12">
       <motion.div
-        initial={{ opacity: 0, y: 24 }}
+        initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35 }}
         className="w-full max-w-lg"
       >
-        <div className="flex flex-col items-center mb-8">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-hero shadow-glow mb-4">
+        <div className="mb-8 flex flex-col items-center text-center">
+          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-hero shadow-glow">
             <Brain className="h-7 w-7 text-white" />
           </div>
-          <h1 className="text-2xl font-extrabold text-slate-800">Join DivergentEd</h1>
-          <p className="text-slate-500 mt-1">A safe space to learn and grow 🌱</p>
+          <h1 className="text-2xl font-extrabold tracking-tight text-ink">Join DivergentEd</h1>
+          <p className="mt-1.5 text-sm text-ink-muted">A safe space to learn and grow 🌱</p>
         </div>
 
         <Card>
           <AnimatePresence mode="wait">
             {step === "role" && (
-              <motion.div key="role" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
-                <h2 className="text-lg font-bold text-slate-800 mb-4">Who are you? 👋</h2>
+              <motion.div key="role" initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -16 }} transition={{ duration: 0.2 }}>
+                <h2 className="mb-4 text-base font-bold text-ink">Who are you? 👋</h2>
                 <div className="grid grid-cols-2 gap-3">
                   {ROLES.map(({ value, label, emoji, desc }) => (
                     <button
@@ -108,11 +109,11 @@ export default function RegisterPage() {
             )}
 
             {step === "details" && (
-              <motion.div key="details" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
-                <button onClick={() => setStep("role")} className="flex items-center gap-1 text-sm text-slate-500 hover:text-slate-700 mb-4">
+              <motion.div key="details" initial={{ opacity: 0, x: 16 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -16 }} transition={{ duration: 0.2 }}>
+                <button onClick={() => setStep("role")} className="mb-4 flex items-center gap-1 text-sm font-medium text-ink-muted hover:text-ink transition-colors">
                   <ArrowLeft className="h-4 w-4" /> Back
                 </button>
-                <h2 className="text-lg font-bold text-slate-800 mb-4">Create your account</h2>
+                <h2 className="mb-4 text-base font-bold text-ink">Create your account</h2>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <Label htmlFor="name">{role === "school_admin" ? "Your name" : "Full name"}</Label>
@@ -144,9 +145,9 @@ export default function RegisterPage() {
           </AnimatePresence>
         </Card>
 
-        <p className="text-center text-sm text-slate-500 mt-4">
+        <p className="mt-6 text-center text-sm text-ink-muted">
           Already have an account?{" "}
-          <Link href="/login" className="text-brand-600 font-semibold hover:underline">Sign in</Link>
+          <Link href="/login" className="font-semibold text-brand-600 hover:underline">Sign in</Link>
         </p>
       </motion.div>
     </div>

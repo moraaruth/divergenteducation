@@ -91,7 +91,7 @@ export default function PricingPage() {
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-hero">
               <Brain className="h-5 w-5 text-white" />
             </div>
-            <span className="text-lg font-extrabold text-slate-800">DivergentEd</span>
+            <span className="text-lg font-extrabold text-ink">DivergentEd</span>
           </Link>
           <div className="flex items-center gap-3">
             <Link href="/login"><Button variant="ghost" size="sm">Sign in</Button></Link>
@@ -101,21 +101,23 @@ export default function PricingPage() {
       </nav>
 
       {/* Header */}
-      <section className="py-20 px-6 text-center bg-gradient-calm">
-        <div className="inline-flex items-center gap-2 rounded-full bg-brand-100 px-4 py-2 text-sm font-semibold text-brand-700 mb-6">
-          <Sparkles className="h-4 w-4" /> Simple, transparent pricing
+      <section className="bg-gradient-calm px-4 py-20 text-center sm:px-6">
+        <div className="mx-auto max-w-2xl">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-brand-100 px-4 py-2 text-sm font-semibold text-brand-700">
+            <Sparkles className="h-4 w-4" /> Simple, transparent pricing
+          </div>
+          <h1 className="text-4xl font-extrabold tracking-tight text-ink sm:text-5xl">
+            Invest in every child&apos;s potential
+          </h1>
+          <p className="mx-auto mt-4 max-w-xl text-lg text-ink-muted">
+            Start free. Scale as you grow. Cancel anytime.
+          </p>
         </div>
-        <h1 className="text-5xl font-extrabold text-slate-900 mb-4">
-          Invest in every child&apos;s potential
-        </h1>
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-          Start free. Scale as you grow. Cancel anytime.
-        </p>
       </section>
 
       {/* Plans */}
-      <section className="py-16 px-6">
-        <div className="mx-auto max-w-6xl grid grid-cols-1 gap-8 md:grid-cols-3">
+      <section className="px-4 py-16 sm:px-6 sm:py-20">
+        <div className="mx-auto max-w-5xl grid grid-cols-1 gap-6 md:grid-cols-3">
           {PLANS.map(({ name, price, period, description, color, badge, features, cta, plan, variant }) => (
             <div
               key={name}
@@ -127,17 +129,17 @@ export default function PricingPage() {
                 </div>
               )}
               <div className="mb-6">
-                <h3 className="text-xl font-extrabold text-slate-800">{name}</h3>
-                <p className="text-sm text-slate-500 mt-1">{description}</p>
+                <h3 className="text-xl font-extrabold text-ink">{name}</h3>
+                <p className="mt-1 text-sm text-ink-muted">{description}</p>
                 <div className="mt-4 flex items-end gap-1">
-                  <span className="text-5xl font-extrabold text-slate-900">{price}</span>
-                  <span className="text-slate-500 mb-1">{period}</span>
+                  <span className="text-5xl font-extrabold tracking-tight text-ink">{price}</span>
+                  <span className="mb-1 text-ink-muted">{period}</span>
                 </div>
               </div>
 
-              <ul className="space-y-3 mb-8">
+              <ul className="mb-8 space-y-3">
                 {features.map((f) => (
-                  <li key={f} className="flex items-center gap-3 text-sm text-slate-700">
+                  <li key={f} className="flex items-center gap-3 text-sm text-ink-muted">
                     <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-calm-100">
                       <Check className="h-3 w-3 text-calm-600" />
                     </div>
@@ -157,14 +159,16 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 px-6 bg-surface-muted">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="text-3xl font-extrabold text-slate-900 text-center mb-12">Frequently asked questions</h2>
-          <div className="space-y-6">
+      <section className="bg-surface-muted px-4 py-16 sm:px-6 sm:py-20">
+        <div className="mx-auto max-w-2xl">
+          <h2 className="mb-10 text-center text-3xl font-extrabold tracking-tight text-ink">
+            Frequently asked questions
+          </h2>
+          <div className="space-y-4">
             {FAQ.map(({ q, a }) => (
               <div key={q} className="rounded-2xl bg-white p-6 shadow-card">
-                <h3 className="font-bold text-slate-800 mb-2">{q}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{a}</p>
+                <h3 className="mb-2 font-bold text-ink">{q}</h3>
+                <p className="text-sm leading-relaxed text-ink-muted">{a}</p>
               </div>
             ))}
           </div>
@@ -172,8 +176,8 @@ export default function PricingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-surface-border bg-white py-8 px-6 text-center">
-        <p className="text-sm text-slate-400">© 2025 DivergentEd. All rights reserved.</p>
+      <footer className="border-t border-surface-border bg-white px-4 py-8 text-center sm:px-6">
+        <p className="text-sm text-ink-subtle">© 2025 DivergentEd. All rights reserved.</p>
       </footer>
     </div>
   );
